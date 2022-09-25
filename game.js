@@ -30,26 +30,28 @@ function setCanvasSize() {
   canvasSize = Math.floor(canvasSize);
   canvas.setAttribute('width', canvasSize);
   canvas.setAttribute('height', canvasSize);
-  elementsSize = canvasSize / 10;
+  tileSize = canvasSize / 10;
 
   startGame();
 }
 
 function startGame() {
-  // console.log({ canvasSize, elementsSize });
-  game.font = elementsSize + 'px Verdana';
-  game.textAlign = 'start';
+  // console.log({ canvasSize, tileSize });
+  game.font = (tileSize) * 0.75 + 'px Verdana';
+  game.textAlign = 'center';
+  game.textBaseline = 'middle';
 
   const map = maps[1];
   const mapRows = map.trim().split('\n');
   const mapRowCols = mapRows.map(row => row.trim().split(''));
-  console.log({ map, mapRows, mapRowCols });
 
-
-
-  for (let row = 1; row <= 10; row++) {
-    for (let col = 1; col <= 10; col++) {
-      game.fillText(emojis[mapRowCols[row - 1][col - 1]], elementsSize * col, elementsSize * row);
+  for (let row = 0; row < 10; row++) {
+    for (let col = 0; col < 10; col++) {
+      game.fillText(
+        emojis[mapRowCols[row][col]],
+        tileSize * (col + 0.5),
+        tileSize * (row + 0.5)
+      );
     }
   }
 }
