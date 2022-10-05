@@ -10,9 +10,7 @@
 // game.fillStyle = 'purple';
 // game.textAlign = 'center';
 // game.fillText('platzi', 25, 25)
-
 const canvas = document.querySelector('#game');
-const game = canvas.getContext('2d');
 const btnUp = document.querySelector('#up');
 const btnLeft = document.querySelector('#left');
 const btnRight = document.querySelector('#right');
@@ -22,6 +20,11 @@ const spanTime = document.querySelector('#time');
 const spanRecord = document.querySelector('#record');
 const pResult = document.querySelector('#result');
 const btnReset = document.querySelector('#reset')
+
+const game = canvas.getContext('2d');
+
+window.addEventListener('load', setCanvasSize);
+window.addEventListener('resize', setCanvasSize);
 
 let canvasSize;
 let tileSize;
@@ -44,8 +47,6 @@ const giftPosition = {
 
 let enemyPositions = [];
 
-window.addEventListener('load', setCanvasSize);
-window.addEventListener('resize', setCanvasSize);
 
 function fixNumber(n) {
   return Number(n.toFixed(2));
@@ -157,11 +158,25 @@ function movePlayer() {
   });
 
   if (enemyCollision) {
+    // console.log('Chocaste contra un enemigo :(');
+    // showCollision();
+    // setTimeout(levelLost, 2000);
     levelFail();
   }
 
   game.fillText(emojis['PLAYER'], playerposition.x, playerposition.y);
 }
+
+// function showCollision() {
+//   firePos.x = playerPos.x;
+//   firePos.y = playerPos.y;
+//   console.log(firePos.x, firePos.y);
+//   fireExp();
+// }
+
+// function fireExp() {
+//   game.fillText(emojis['BOMB_COLLISION'], firePos.x, firePos.y)
+// }
 
 function levelWin() {
   console.log('Subistes de nivel');

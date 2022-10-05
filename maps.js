@@ -4,10 +4,12 @@ const emojis = {
   'X': '💣',
   'I': '🎁',
   'PLAYER': '💀',
-  'BOMB_COLLISION': '🔥',
-  'GAME_OVER': '👎',
+  'BOMB_COLLISION': '💥',
+  'GAME_OVER': '😈',
   'WIN': '🏆',
   'HEART': '❤️',
+  'PARTY_1': '🎊',
+  'PARTY_2': '🎉'
 };
 
 const maps = [];
