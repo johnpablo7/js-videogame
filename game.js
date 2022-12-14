@@ -74,7 +74,6 @@ function setCanvasSize() {
 function startGame() {
   console.log({ canvasSize, tileSize });
   // console.log(window.innerWidth, window.innerHeight);
-
   game.font = (tileSize) * 0.75 + 'px Verdana';
   game.textAlign = 'end';
   game.textBaseline = 'bottom';
